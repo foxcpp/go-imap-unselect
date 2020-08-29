@@ -15,6 +15,8 @@ func (h *handler) Handle(conn server.Conn) error {
 		return server.ErrNoMailboxSelected
 	}
 
+	ctx.Mailbox.Close()
+
 	ctx.Mailbox = nil
 	ctx.MailboxReadOnly = false
 	return nil
